@@ -1,7 +1,7 @@
 JsonTableViewSwift
 ==================
 
-How to load JSON data from iTunes to a TableView using Alamofire
+How to load JSON data from iTunes to a TableView programmatically using Swift 2
 
 
 ### Contact
