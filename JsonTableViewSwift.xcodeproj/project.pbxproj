@@ -13,8 +13,6 @@
 		9A13716719D1D0F3005D9258 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A13716619D1D0F3005D9258 /* Images.xcassets */; };
 		9A13716A19D1D0F3005D9258 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A13716819D1D0F3005D9258 /* LaunchScreen.xib */; };
 		9A13717619D1D0F3005D9258 /* JsonTableViewSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A13717519D1D0F3005D9258 /* JsonTableViewSwiftTests.swift */; };
-		9A13718319D1D1C6005D9258 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A13718119D1D1C6005D9258 /* Alamofire.swift */; };
-		9A13718419D1D1C6005D9258 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A13718219D1D1C6005D9258 /* Info.plist */; };
 		9A13718619D1D201005D9258 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A13718519D1D201005D9258 /* TableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,9 +37,6 @@
 		9A13716F19D1D0F3005D9258 /* JsonTableViewSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonTableViewSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A13717419D1D0F3005D9258 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A13717519D1D0F3005D9258 /* JsonTableViewSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonTableViewSwiftTests.swift; sourceTree = "<group>"; };
-		9A13718019D1D1C6005D9258 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
-		9A13718119D1D1C6005D9258 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
-		9A13718219D1D1C6005D9258 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A13718519D1D201005D9258 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +79,6 @@
 		9A13716119D1D0F3005D9258 /* JsonTableViewSwift */ = {
 			isa = PBXGroup;
 			children = (
-				9A13717F19D1D1C6005D9258 /* Alamofire */,
 				9A13716419D1D0F3005D9258 /* AppDelegate.swift */,
 				9A13718519D1D201005D9258 /* TableView.swift */,
 				0822E02A19D39FB400427263 /* Album.swift */,
@@ -119,16 +113,6 @@
 				9A13717419D1D0F3005D9258 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9A13717F19D1D1C6005D9258 /* Alamofire */ = {
-			isa = PBXGroup;
-			children = (
-				9A13718019D1D1C6005D9258 /* Alamofire.h */,
-				9A13718119D1D1C6005D9258 /* Alamofire.swift */,
-				9A13718219D1D1C6005D9258 /* Info.plist */,
-			);
-			path = Alamofire;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,7 +159,9 @@
 		9A13715719D1D0F3005D9258 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Gazolla;
 				TargetAttributes = {
 					9A13715E19D1D0F3005D9258 = {
@@ -213,7 +199,6 @@
 			files = (
 				9A13716A19D1D0F3005D9258 /* LaunchScreen.xib in Resources */,
 				9A13716719D1D0F3005D9258 /* Images.xcassets in Resources */,
-				9A13718419D1D1C6005D9258 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +216,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A13718319D1D1C6005D9258 /* Alamofire.swift in Sources */,
 				08F914C319D4AA170083BD76 /* CustomTableViewCell.swift in Sources */,
 				9A13718619D1D201005D9258 /* TableView.swift in Sources */,
 				9A13716519D1D0F3005D9258 /* AppDelegate.swift in Sources */,
@@ -289,6 +273,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -303,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -339,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -352,6 +337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JsonTableViewSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gazapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -362,6 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JsonTableViewSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gazapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -380,6 +367,7 @@
 				);
 				INFOPLIST_FILE = JsonTableViewSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gazapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JsonTableViewSwift.app/JsonTableViewSwift";
 			};
@@ -395,6 +383,7 @@
 				);
 				INFOPLIST_FILE = JsonTableViewSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gazapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JsonTableViewSwift.app/JsonTableViewSwift";
 			};

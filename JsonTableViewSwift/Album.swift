@@ -20,4 +20,8 @@ class Album{
         self.collectionPrice = aCollectionPrice
     }
     
+    init(){
+ 
+    }
+    
 }
