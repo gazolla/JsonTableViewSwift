@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0822E02B19D39FB400427263 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822E02A19D39FB400427263 /* Album.swift */; };
+		0884F8B01C7B43F900FB97A4 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884F8AF1C7B43F900FB97A4 /* HTTP.swift */; };
 		08F914C319D4AA170083BD76 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F914C219D4AA170083BD76 /* CustomTableViewCell.swift */; };
 		9A13716519D1D0F3005D9258 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A13716419D1D0F3005D9258 /* AppDelegate.swift */; };
 		9A13716719D1D0F3005D9258 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A13716619D1D0F3005D9258 /* Images.xcassets */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		0822E02A19D39FB400427263 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		0884F8AF1C7B43F900FB97A4 /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		08F914C219D4AA170083BD76 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		9A13715F19D1D0F3005D9258 /* JsonTableViewSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsonTableViewSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A13716319D1D0F3005D9258 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				9A13716419D1D0F3005D9258 /* AppDelegate.swift */,
+				0884F8AF1C7B43F900FB97A4 /* HTTP.swift */,
 				9A13718519D1D201005D9258 /* TableView.swift */,
 				0822E02A19D39FB400427263 /* Album.swift */,
 				08F914C219D4AA170083BD76 /* CustomTableViewCell.swift */,
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0884F8B01C7B43F900FB97A4 /* HTTP.swift in Sources */,
 				08F914C319D4AA170083BD76 /* CustomTableViewCell.swift in Sources */,
 				9A13718619D1D201005D9258 /* TableView.swift in Sources */,
 				9A13716519D1D0F3005D9258 /* AppDelegate.swift in Sources */,
