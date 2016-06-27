@@ -10,6 +10,13 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
+    var album:Album? {
+        didSet{
+            self.textLabel?.text = album?.artistName
+            self.detailTextLabel?.text = album?.collectionName
+        }
+    }
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: UITableViewCellStyle.Subtitle, reuseIdentifier: reuseIdentifier)
     }
@@ -20,13 +27,10 @@ class CustomTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

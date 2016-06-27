@@ -11,23 +11,35 @@ import UIKit
 class HTTP {
     
     static func GET(urlString: String, completion: (data: NSData?, error: NSError?)->Void){
-        let request = NSMutableURLRequest(urlString: urlString, method: .GET)
-        connectToServer(request!, completion: completion)
+        if let request = NSMutableURLRequest(urlString: urlString, method: .GET) {
+            connectToServer(request, completion: completion)
+        } else {
+            throwError(400, completion: completion)
+        }
     }
     
     static func POST(urlString: String, body:NSData?, completion: (data: NSData?, error: NSError?)->Void){
-        let request = NSMutableURLRequest(urlString: urlString, method: .POST, body:body)
-        connectToServer(request!, completion: completion)
+        if let request = NSMutableURLRequest(urlString: urlString, method: .POST, body:body){
+            connectToServer(request, completion: completion)
+        } else {
+            throwError(400, completion: completion)
+        }
     }
     
     static func PUT(urlString: String, body:NSData?, completion: (data: NSData?, error: NSError?)->Void){
-        let request = NSMutableURLRequest(urlString: urlString, method: .PUT, body:body)
-        connectToServer(request!, completion: completion)
+        if let request = NSMutableURLRequest(urlString: urlString, method: .PUT, body:body){
+            connectToServer(request, completion: completion)
+        } else {
+            throwError(400, completion: completion)
+        }
     }
     
     static func DELETE(urlString: String, completion: (data: NSData?, error: NSError?)->Void){
-        let request = NSMutableURLRequest(urlString: urlString, method: .DELETE)
-        connectToServer(request!, completion: completion)
+        if let request = NSMutableURLRequest(urlString: urlString, method: .DELETE){
+            connectToServer(request, completion: completion)
+        } else {
+            throwError(400, completion: completion)
+        }
     }
     
     static func connectToServer(request:NSMutableURLRequest, completion:(data:NSData?, error:NSError?) -> Void){
@@ -37,15 +49,19 @@ class HTTP {
             if let responseError = error{
                 completion(data: nil, error: responseError)
             } else if let httpResponse = response as? NSHTTPURLResponse {
-                if httpResponse.statusCode != 200 && httpResponse.statusCode != 201 && httpResponse.statusCode != 204 {
-                    let statusError = NSError(domain: "com.gazapps", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "HTTP status code has unexpected value."])
-                    completion(data: nil, error: statusError)
-                } else {
+                if 200...299 ~= httpResponse.statusCode {
                     completion(data: data, error: nil)
+                } else {
+                    throwError(httpResponse.statusCode, completion: completion)
                 }
             }
         }
         task.resume()
+    }
+    
+    static func throwError(code:Int, completion:(data:NSData?, error:NSError?)->Void){
+        let statusError = NSError(domain: "com.gazapps", code: code, userInfo: [NSLocalizedDescriptionKey: NSHTTPURLResponse.localizedStringForStatusCode(code)])
+        completion(data: nil, error: statusError)
     }
 
 }
@@ -65,14 +81,14 @@ extension NSMutableURLRequest {
 }
 
 public enum HTTPVerb: String {
-    case GET = "GET"
-    case POST = "POST"
-    case PUT = "PUT"
-    case HEAD = "HEAD"
-    case DELETE = "DELETE"
-    case PATCH = "PATCH"
-    case OPTIONS = "OPTIONS"
-    case TRACE = "TRACE"
-    case CONNECT = "CONNECT"
-    case UNKNOWN = "UNKNOWN"
+    case GET
+    case POST
+    case PUT
+    case HEAD
+    case DELETE
+    case PATCH
+    case OPTIONS
+    case TRACE
+    case CONNECT
+    case UNKNOWN 
 }

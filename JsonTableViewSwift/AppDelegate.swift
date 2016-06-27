@@ -18,6 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let tableView = TableView()
+        Album.findAll { (album, error) in
+            dispatch_async(dispatch_get_main_queue(), {
+                if let items = album {
+                    tableView.items = items
+                }
+                if let error = error {
+                    tableView.error = error
+                }
+            })
+        }
+        
         let nav = UINavigationController(rootViewController: tableView)
         
         self.window!.rootViewController = nav
