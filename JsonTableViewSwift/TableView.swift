@@ -42,13 +42,11 @@ class TableView: UIViewController{
     func loadDataErrorMessage(error:NSError){
         let alertController = UIAlertController(title: "Error - \(error.code)", message: error.localizedDescription, preferredStyle: .Alert)
         let okAction = UIAlertAction(title: "Ok", style: .Default, handler: { (alert:UIAlertAction) -> Void in
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             alertController.dismissViewControllerAnimated(true, completion: {})
         })
         
         alertController.addAction(okAction)
         self.presentViewController(alertController, animated: true, completion: {})
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
 
     override func didReceiveMemoryWarning() {

@@ -43,9 +43,11 @@ class HTTP {
     }
     
     static func connectToServer(request:NSMutableURLRequest, completion:(data:NSData?, error:NSError?) -> Void){
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
         let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             if let responseError = error{
                 completion(data: nil, error: responseError)
             } else if let httpResponse = response as? NSHTTPURLResponse {
