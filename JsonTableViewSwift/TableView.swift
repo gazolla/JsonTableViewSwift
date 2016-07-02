@@ -9,9 +9,23 @@
 import UIKit
 
 
-class TableView: UIViewController{
+class TableView<Item>: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var items:[Album] = [] {
+    var cellType:AnyClass
+    let configureCell:(cell:UITableViewCell, item:Item)->()
+    
+    init(entries:[Item], cell:AnyClass, configureCell:(cell:UITableViewCell, item:Item)->()){
+        self.cellType = cell
+        self.configureCell = configureCell
+        self.items = entries
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var items:[Item] = [] {
         didSet{
             self.tableView.reloadData()
             self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
@@ -35,7 +49,6 @@ class TableView: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "JSON TableView"
         self.view.addSubview(self.tableView)
     }
     
@@ -52,17 +65,15 @@ class TableView: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-}
-
-extension TableView:UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: CustomTableViewCell =  tableView .dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomTableViewCell
-        cell.album = self.items[indexPath.row]
+        let cell = tableView .dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let item = self.items[indexPath.row]
+        configureCell(cell: cell, item: item)
         return cell
     }
     

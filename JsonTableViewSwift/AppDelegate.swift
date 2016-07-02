@@ -17,7 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        let tableView = TableView()
+        let tableView = TableView(entries: [Album](), cell: CustomTableViewCell.self) { (cell, item) in
+            (cell as! CustomTableViewCell).album = item
+        }
+        tableView.title = "JSON TableView"
+        
         Album.findAll { (album, error) in
             dispatch_async(dispatch_get_main_queue(), {
                 if let items = album {
